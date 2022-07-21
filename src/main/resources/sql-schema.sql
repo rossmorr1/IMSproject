@@ -20,7 +20,7 @@ Price decimal(10,2) not null
 create table if not exists OrderRecord(
 OrderID int primary key auto_increment,
 CustomerID int not null,
-foreign key (CustomerID) references Customer(CustomerID)
+foreign key (CustomerID) references Customers(id)
 );
 
 
@@ -28,6 +28,6 @@ create table if not exists OrderProduct(
 id int primary key auto_increment,
 OrderId int not null,
 ProductID int not null,
-foreign key (OrderID) references Ordered(OrderID),
+foreign key (OrderID) references OrderRecord(OrderID),
 foreign key (ProductID) references product(ProductID)
 );
